@@ -1,0 +1,16 @@
+{
+    "api":{
+        "jsonplaceholder":{
+            "baseURL":"https://jsonplaceholder.typicode.com/",
+            "posts":{
+                "uri":"posts/"
+            },
+            "albums":{
+                "uri":"albums/"
+            },
+            "users":{
+                "uri":"users/"
+            }
+        }
+    }
+}
