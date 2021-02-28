@@ -1,5 +1,5 @@
 import axios, { AxiosRequestConfig, AxiosResponse } from "axios";
-import { ApiResponse } from "./request";
+import { ApiResponse } from "./requests";
 
 export class Api {
 

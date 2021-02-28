@@ -1,5 +1,5 @@
 export default interface IConfig {
-    api: Api;
+    api: Api
 }
 
 type Uri = {
