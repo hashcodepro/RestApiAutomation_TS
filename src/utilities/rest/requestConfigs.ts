@@ -1,4 +1,5 @@
 import { AxiosRequestConfig } from "axios"
+import { URLSearchParams } from "url";
 import { Method } from "../../enums";
 
 export class RequestConfigs {

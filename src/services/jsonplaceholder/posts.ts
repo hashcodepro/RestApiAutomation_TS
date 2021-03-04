@@ -1,11 +1,11 @@
-import { Api, ApiResponse, RequestConfigs } from "../../utilities/requests";
+import { Api, RequestConfigs } from "../../utilities/rest";
 import { config } from "../../config";
 import { Method } from "../../enums";
 
 export class Posts {
 
-    public async post(): Promise<ApiResponse> {
-        let response = await new Api().execute(new RequestConfigs()
+    public async post(): Promise<rest.ApiResponse> {
+        let response = await new Api().sendRequest(new RequestConfigs()
             .defaultConfiguration()
             .withBaseURL(config.api.jsonplaceholder.baseURL)
             .withUrl(config.api.jsonplaceholder.posts.uri)
