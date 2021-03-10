@@ -4,7 +4,7 @@ import { Method } from "../../enums";
 
 export class Posts {
 
-    public async post(): Promise<rest.ApiResponse> {
+    public async getAllPosts(): Promise<rest.ApiResponse> {
         let response = await new Api().sendRequest(new RequestConfigs()
             .defaultConfiguration()
             .withBaseURL(config.api.jsonplaceholder.baseURL)
