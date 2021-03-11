@@ -1,6 +1,6 @@
 let common = [
-    '--require src/tests/features/**/*.feature',
-    '--require src/tests/step-definitions/**/*.steps.js'
+    'src/tests/features/jsonplaceholder/posts.feature',
+    // '--require src/tests/step-definitions/jsonplaceholder/posts.steps.js'
 ].join(' ');
 
 export default common;
