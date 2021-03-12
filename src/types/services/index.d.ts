@@ -1,0 +1,1 @@
+/// <reference path="./jsonplaceholder/posts.d.ts" />

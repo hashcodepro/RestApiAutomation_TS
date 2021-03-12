@@ -1,4 +1,4 @@
-import { setWorldConstructor, World } from "@cucumber/cucumber";
+import { setWorldConstructor } from "@cucumber/cucumber";
 
 class TestContext {
 
