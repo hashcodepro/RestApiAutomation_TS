@@ -16,7 +16,7 @@ export class Posts {
     }
 
     public async getPost(id: number) {
-        let url = config.api.jsonplaceholder.posts.uri + "/" + id.toString();
+        let url = config.api.jsonplaceholder.posts.uri + id.toString();
 
         let response = await new Api().sendRequest(new RequestConfigs()
             .defaultConfiguration()
@@ -41,7 +41,7 @@ export class Posts {
     }
 
     public async updatePost(data: jph.Post) {
-        let url = config.api.jsonplaceholder.posts.uri + "/" + data.id.toString();
+        let url = config.api.jsonplaceholder.posts.uri + data.id.toString();
 
         let response = await new Api().sendRequest(new RequestConfigs()
             .defaultConfiguration()
@@ -55,7 +55,7 @@ export class Posts {
     }
 
     public async patchPost(id: number, data: jph.PostInput) {
-        let url = config.api.jsonplaceholder.posts.uri + "/" + id.toString();
+        let url = config.api.jsonplaceholder.posts.uri + id.toString();
 
         let response = await new Api().sendRequest(new RequestConfigs()
             .defaultConfiguration()
