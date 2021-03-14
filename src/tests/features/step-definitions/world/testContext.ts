@@ -1,8 +1,8 @@
-import { setWorldConstructor } from "@cucumber/cucumber";
+import { setWorldConstructor, World } from "@cucumber/cucumber";
 
-class TestContext {
+class TestContext extends World {
 
-    public apiResponse?: rest.ApiResponse;
+    apiResponse?: rest.ApiResponse;
 
 }
 

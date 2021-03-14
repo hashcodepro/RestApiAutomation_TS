@@ -1,8 +1,9 @@
-import { Api, RequestConfigs } from "../../utilities/rest";
-import { config } from "../../config";
-import { Method } from "../../enums";
+import { Api, RequestConfigs } from "../../../utilities/rest";
+import { config } from "../../../config";
+import { Method } from "../../../enums";
+import { PostData } from "./post.data"
 
-export class Posts {
+export class Posts extends PostData {
 
     public async getAllPosts(): Promise<rest.ApiResponse> {
         let response = await new Api().sendRequest(new RequestConfigs()

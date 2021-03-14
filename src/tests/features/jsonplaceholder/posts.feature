@@ -14,4 +14,15 @@ Scenario Outline: To verify that a single post can be retrieved by using the id
         | 1  | 
         | 2  | 
         | 3  | 
-        | 4  | 
+        | 4  |
+
+Scenario: To verify that a new post can be created
+    When I make a request to posts endpoint with new post information
+    Then a new post should be created successfully
+    And an Id should be generated for the new post
+
+Scenario: To verify that an existing post can be updated
+    Given that the post to be updated with '1' exists
+    When a request is made to posts endpoint with updated information for id '1'
+    Then the post should be updated successfully
+    And the udpated information should be returned in the response
