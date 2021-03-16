@@ -1,9 +1,9 @@
-import { setWorldConstructor, World } from "@cucumber/cucumber";
+import { World, setWorldConstructor, IWorldOptions } from "@cucumber/cucumber";
 
-class TestContext extends World {
+export interface TestContext extends World {
 
-    apiResponse?: rest.ApiResponse;
-
+    apiResponse: rest.ApiResponse;
+    existingPost: jph.Post;
 }
 
-setWorldConstructor(TestContext);
+// setWorldConstructor(TestContext);

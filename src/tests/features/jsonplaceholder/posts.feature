@@ -22,7 +22,15 @@ Scenario: To verify that a new post can be created
     And an Id should be generated for the new post
 
 Scenario: To verify that an existing post can be updated
-    Given that the post to be updated with '1' exists
+    Given that the post to be updated with id '1' exists
     When a request is made to posts endpoint with updated information for id '1'
+    Then the post should be updated successfully
+    And the udpated information should be returned in the response
+
+Scenario: To verify that a single value can be updated for an existing post
+    Given that the post to be updated with id '1' exists
+    When a request is made to posts endpoint with updated information
+        |id |field   |value         |
+        |1  |body    |patched body  |
     Then the post should be updated successfully
     And the udpated information should be returned in the response

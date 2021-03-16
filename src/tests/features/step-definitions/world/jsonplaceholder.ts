@@ -1,5 +1,5 @@
-import { setWorldConstructor } from "@cucumber/cucumber";
+// import { setWorldConstructor } from "@cucumber/cucumber";
 
-class JsonplaceholderWorld {
-    existingPost?: jph.Post;
-}
+// export class JsonplaceholderWorld {
+//     existingPost?: jph.Post;
+// }
