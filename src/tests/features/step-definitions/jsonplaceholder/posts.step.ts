@@ -1,4 +1,4 @@
-import { Given, When, Then, World } from "@cucumber/cucumber";
+import { Given, When, Then, setDefaultTimeout } from "@cucumber/cucumber";
 import { Posts } from "../../../../services";
 import { expect } from "chai";
 import { TestContext } from "../world/testContext";
@@ -11,6 +11,8 @@ type DataTable = Array<{
     value: string | number
 }>;
 
+setDefaultTimeout(60 * 1000);
+
 When(/I make a request to the posts endpoint/, async function (this: TestContext) {
     this.apiResponse = await posts.getAllPosts();
 });
@@ -22,7 +24,8 @@ Then(/a list of all the posts should be retrieved/, function (this: TestContext)
 
     let postData = this.apiResponse.data as Array<jph.Post>;
 
-    console.log(`No. of posts : ${postData.length}`);
+    this.attach(`No. of posts : ${postData.length}`);
+    this.attach(`Posts Retrieved : ${JSON.stringify(postData, undefined, 4)}`);
 });
 
 When(/I make a request to posts endpoint with '(.*)'/, async function (this: TestContext, id: number) {
@@ -36,11 +39,13 @@ Then(/only a single post should be retrieved from the endpoint/, function (this:
 
     let postData = this.apiResponse.data as jph.Post;
 
-    console.log(`Post Data Retrieved : ${JSON.stringify(postData, undefined, 4)}`);
+    this.attach(`Post Data Retrieved : ${JSON.stringify(postData, undefined, 4)}`);
 });
 
 When(/I make a request to posts endpoint with new post information/, async function (this: TestContext) {
     this.apiResponse = await posts.createPost(posts.defaultData);
+
+    this.attach(`New Post Information : ${JSON.stringify(posts.updateData, undefined, 4)}`);
 });
 
 Then(/a new post should be created successfully/, function (this: TestContext) {
@@ -54,7 +59,7 @@ Then(/an Id should be generated for the new post/, function (this: TestContext) 
 
     expect(postData.id).to.not.be.undefined;
 
-    console.log(`Post Response Data : ${JSON.stringify(this.apiResponse.data, undefined, 4)}`);
+    this.attach(`Post Response Data : ${JSON.stringify(this.apiResponse.data, undefined, 4)}`);
 });
 
 Given(/that the post to be updated with id '(.*)' exists/, async function (this: TestContext, id: number) {
@@ -77,8 +82,8 @@ Then(/the udpated information should be returned in the response/, function (thi
 
     expect(udpatedData).to.not.eql(this.existingPost);
 
-    console.log(`Existing Post : ${JSON.stringify(this.existingPost, undefined, 4)}`);
-    console.log(`Updated Post : ${JSON.stringify(udpatedData, undefined, 4)}`);
+    this.attach(`Existing Post : ${JSON.stringify(this.existingPost, undefined, 4)}`);
+    this.attach(`Updated Post : ${JSON.stringify(udpatedData, undefined, 4)}`);
 });
 
 When(/^a request is made to posts endpoint with updated information$/, async function (this: TestContext, table) {
