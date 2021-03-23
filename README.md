@@ -67,7 +67,7 @@ To generate the reports execute the below command
 npm run report
 ```
 The html files would be generated in the reports folder.
-![API Testing using Cucumber and Typescript Test Results](./images/report.pngraw=true "API Testing using Cucumber and Typescript Test Results")
+![API Testing using Cucumber and Typescript Test Results](./images/report.png?raw=true "API Testing using Cucumber and Typescript Test Results")
 
 
 ### References
