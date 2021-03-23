@@ -15,7 +15,7 @@
     "typescript": "^4.2.2"
   },
   "scripts": {
-    "report":"node ./src/reports/index.js",
+    "report": "node ./src/reports/index.js",
     "test": "cucumber-js -p default"
   },
   "repository": {

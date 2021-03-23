@@ -45,7 +45,7 @@ Then(/only a single post should be retrieved from the endpoint/, function (this:
 When(/I make a request to posts endpoint with new post information/, async function (this: TestContext) {
     this.apiResponse = await posts.createPost(posts.defaultData);
 
-    this.attach(`New Post Information : ${JSON.stringify(posts.updateData, undefined, 4)}`);
+    this.attach(`New Post Information : ${JSON.stringify(posts.defaultData, undefined, 4)}`);
 });
 
 Then(/a new post should be created successfully/, function (this: TestContext) {
